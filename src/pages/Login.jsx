@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, Stethoscope, Lock, User } from 'lucide-react';
 import api from '../api';
@@ -20,9 +20,7 @@ const Login = () => {
     setError('');
 
     try {
-      console.log('Attempting login for:', formData.username);
       const response = await api.post('/auth/login', formData);
-      console.log('Login response:', response);
 
       if (!response || !response.token || !response.user) {
         setError("Server javobida xatolik");
@@ -30,26 +28,21 @@ const Login = () => {
         return;
       }
 
+      // Bu panel FAQAT admin uchun
+      if (response.user.role !== 'admin') {
+        setError("Bu panel faqat Admin uchun! Siz " + response.user.role + " rolidagilar uchun boshqa panelga kirishingiz kerak.");
+        setLoading(false);
+        return;
+      }
+
       localStorage.setItem('token', response.token);
       localStorage.setItem('user', JSON.stringify(response.user));
+      localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('isAuthenticated', 'true');
-
-      // Agar admin bo'lsa - bu panelda qol, aks holda to'g'ri panelga yo'nalt
-      if (response.user.role === 'admin') {
-        navigate('/dashboard');
-      } else if (response.redirectUrl) {
-        // Token va user ma'lumotlarini URL orqali yuborish (localStorage port-specific)
-        const targetUrl = new URL(response.redirectUrl);
-        targetUrl.searchParams.set('token', response.token);
-        targetUrl.searchParams.set('user', JSON.stringify(response.user));
-        setRedirecting(response.redirectUrl);
-        setTimeout(() => { window.location.href = targetUrl.toString(); }, 1200);
-      } else {
-        navigate('/dashboard');
-      }
+      navigate('/dashboard');
     } catch (err) {
       console.error('Login error:', err);
-      setError(err.message || 'Login failed');
+      setError(err.message || 'Login yoki parol noto\'g\'ri');
     } finally {
       setLoading(false);
     }
