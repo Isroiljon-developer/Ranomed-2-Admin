@@ -1,4 +1,4 @@
-import { useState } from 'react';
+﻿import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Eye, EyeOff, Stethoscope, Lock, User } from 'lucide-react';
 import api from '../api';
@@ -73,7 +73,7 @@ const Login = () => {
 
           {redirecting && (
             <div className="mb-4 p-3 bg-blue-50 border border-blue-200 rounded-lg text-blue-700 text-sm text-center animate-pulse">
-              ✅ {redirecting.includes('5174') ? 'Direktor' : redirecting.includes('5175') ? 'Doktor' : redirecting.includes('5176') ? 'Kassir' : redirecting.includes('5177') ? 'Qabulxona' : redirecting.includes('5178') ? 'Hamshira' : redirecting.includes('5179') ? 'Laborant' : 'Boshqa'} paneliga yo'naltirilmoqda...
+              вњ… {redirecting.includes('5174') ? 'Direktor' : redirecting.includes('5175') ? 'Doktor' : redirecting.includes('5176') ? 'Kassir' : redirecting.includes('5177') ? 'Qabulxona' : redirecting.includes('5178') ? 'Hamshira' : redirecting.includes('5179') ? 'Laborant' : 'Boshqa'} paneliga yo'naltirilmoqda...
             </div>
           )}
           {error && !redirecting && (
@@ -128,7 +128,7 @@ const Login = () => {
           {/* Test Login Ma'lumotlari */}
           <div className="mt-6 pt-5 border-t border-gray-150">
             <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 text-center">
-              🔑 Sinov uchun login va parol:
+              рџ”‘ Sinov uchun login va parol:
             </p>
             <div 
               onClick={() => setFormData({ username: 'admin', password: 'admin123' })}
@@ -144,7 +144,7 @@ const Login = () => {
               </div>
             </div>
             <p className="text-[11px] text-center text-gray-400 mt-2">
-              💡 (Ustiga bossangiz, avtomatik to'ldiriladi)
+              рџ’Ў (Ustiga bossangiz, avtomatik to'ldiriladi)
             </p>
           </div>
 
@@ -155,3 +155,4 @@ const Login = () => {
 };
 
 export default Login;
+
