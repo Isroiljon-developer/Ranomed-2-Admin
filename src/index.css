@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ranomed -2  Design System - Blue, Green, Red, White */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 50% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 50% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 50% 10%;
+
+    /* Primary - Blue */
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Light Blue */
+    --secondary: 210 100% 95%;
+    --secondary-foreground: 210 100% 30%;
+
+    /* Muted */
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 20% 40%;
+
+    /* Accent - Green */
+    --accent: 142 70% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive - Red */
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success - Green */
+    --success: 142 70% 45%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning - Orange */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    /* Info - Blue */
+    --info: 210 100% 50%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 210 30% 90%;
+    --input: 210 30% 90%;
+    --ring: 210 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Sidebar - Blue theme */
+    --sidebar-background: 210 100% 20%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 210 100% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 100% 30%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 210 100% 25%;
+    --sidebar-ring: 210 100% 60%;
+  }
+
+  .dark {
+    --background: 210 50% 5%;
+    --foreground: 0 0% 98%;
+
+    --card: 210 50% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 210 50% 8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 210 100% 55%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 50% 15%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 210 50% 15%;
+    --muted-foreground: 210 20% 65%;
+
+    --accent: 142 70% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 45%;
+    --warning-foreground: 0 0% 100%;
+
+    --info: 210 100% 55%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 210 50% 20%;
+    --input: 210 50% 20%;
+    --ring: 210 100% 55%;
+
+    --sidebar-background: 210 100% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 210 100% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 100% 20%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 210 100% 15%;
+    --sidebar-ring: 210 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.5);
+}
